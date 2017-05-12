@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "async": "^2.4.0",
     "db-migrate": "^0.10.0-beta.20",
     "db-migrate-pg": "^0.1.11",
     "dotenv": "^4.0.0",
@@ -30,7 +31,8 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "migrate": "node node_modules/.bin/grunt db:migrate:up"
   },
   "main": "app.js",
   "repository": {
