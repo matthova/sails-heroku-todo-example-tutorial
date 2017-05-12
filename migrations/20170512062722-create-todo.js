@@ -1,27 +1,24 @@
-'use strict';
+const async = require('async');
+const dbm = global.dbm || require('db-migrate');
+const type = dbm.dataType;
 
-var dbm;
-var type;
-var seed;
-
-/**
-  * We receive the dbmigrate dependency from dbmigrate initially.
-  * This enables us to not have to rely on NODE_PATH.
-  */
-exports.setup = function(options, seedLink) {
-  dbm = options.dbmigrate;
-  type = dbm.dataType;
-  seed = seedLink;
+exports.up = (db, callback) => {
+  async.series([
+    (cb) => {
+      db.createTable('todo', {
+        id: { type: 'int', primaryKey: true, autoIncrement: true },
+        description: 'string',
+        createdAt: 'datetime',
+        updatedAt: 'timestamp'
+      }, cb);
+    },
+  ], callback);
 };
 
-exports.up = function(db) {
-  return null;
-};
-
-exports.down = function(db) {
-  return null;
-};
-
-exports._meta = {
-  "version": 1
+exports.down = function(db, callback) {
+  async.series([
+    (cb) => {
+      db.dropTable('todo', cb)
+    }
+  ], callback);
 };
