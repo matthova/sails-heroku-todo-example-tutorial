@@ -37,13 +37,12 @@ nvm install v7
 ```
 
   </li>
-  </li>
   <li>
+    <a name="psql"></a>
     <p>Install Postgres</p>
     <p>Download the postgres app for <a href="http://postgresapp.com/">Mac</a>, <a href="https://www.postgresql.org/download/windows/">Windows</a>, or your <a href="https://www.postgresql.org/download/">OS of choice</a>.</p>
   </li>
   <li>
-    <a name="psql"></a>
     <p>Once Postgres is installed and running, sign into your postgres instance. You can log in from terminal by entering the following:</p>
 
 ```
