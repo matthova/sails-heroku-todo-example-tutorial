@@ -1,0 +1,11 @@
+{
+  "name": "Sails Todo Demo",
+  "description": "Sails and Heroku, together forever",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": [
+    "node",
+    "express",
+    "heroku"
+  ],
+  "image": "heroku/nodejs"
+}
