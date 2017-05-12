@@ -365,7 +365,7 @@ git push heroku master
   </li>
   <li>
     <p>If everything goes according to plan, your heroku instance should be up and running. Good Job!</p>
-    <p>Here's a link to the example Heroku app: <a href="https://sails-todo-example-tutorial.herokuapp.com/">https://sails-todo-example-tutorial.herokuapp.com/</a>
+    <p>Here's a link to the example Heroku app: <a href="https://sails-todo-example-tutorial.herokuapp.com/todo">https://sails-todo-example-tutorial.herokuapp.com/todo</a>
   </li>
 </ol>
 
