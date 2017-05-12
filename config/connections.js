@@ -19,6 +19,19 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.connections.html
  */
 
+function generatePostgresqlObject() {
+  const local = String(process.env.DATABASE_URL).indexOf('localhost') !== -1
+
+  const adapter = 'sails-postgresql';
+  const url = local ? undefined : process.env.DATABASE_URL;
+  const address = local ? process.env.DATABASE_URL : undefined;
+  const ssl = !local;
+  const database = local ? 'sails_todo' : undefined;
+
+  const pgObject = { adapter, url, address, ssl, database };
+  return pgObject;
+}
+
 module.exports.connections = {
 
   /***************************************************************************
@@ -28,9 +41,9 @@ module.exports.connections = {
   * Installed by default.                                                    *
   *                                                                          *
   ***************************************************************************/
-  localDiskDb: {
-    adapter: 'sails-disk'
-  },
+  // localDiskDb: {
+  //   adapter: 'sails-disk'
+  // },
 
   /***************************************************************************
   *                                                                          *
@@ -74,6 +87,7 @@ module.exports.connections = {
   *                                                                          *
   *                                                                          *
   ***************************************************************************/
+  somePostgresqlServer: generatePostgresqlObject(),
   // somePostgresqlServer: {
   //   adapter: 'sails-postgresql',
   //   host: 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
