@@ -1,9 +1,12 @@
 {
   "name": "sails-heroku-todo-example-tutorial",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "a Sails application",
-  "keywords": [],
+  "keywords": [
+    "sails",
+    "react"
+  ],
   "dependencies": {
     "async": "^2.4.0",
     "db-migrate": "^0.10.0-beta.20",
@@ -23,22 +26,37 @@
     "grunt-sails-linker": "~0.10.1",
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
+    "node-sass": "^4.5.2",
+    "npm-run-all": "^4.0.2",
     "rc": "1.0.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "sails": "~0.12.13",
     "sails-db-migrate": "^1.5.0",
     "sails-disk": "~0.10.9",
     "sails-postgresql": "^0.11.4"
   },
+  "devDependencies": {
+    "react-scripts": "0.9.5"
+  },
   "scripts": {
-    "debug": "node debug app.js",
-    "start": "node app.js",
-    "migrate": "node node_modules/.bin/grunt db:migrate:up"
+    "start": "npm-run-all -p start-sails start-react",
+    "start-sails": "node app.js",
+    "start-react": "npm-run-all -p watch-css start-js",
+    "migrate": "node node_modules/.bin/grunt db:migrate:up",
+    "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "build": "npm run build-css && react-scripts build && rm -rf assets/static && mv build/* assets/ && mv assets/index.html views/homepage.ejs",
+    "build-css": "node-sass src/ -o src/",
+    "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "main": "app.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/hovanem/sails-heroku-todo-example-tutorial.git"
   },
-  "author": "hovanem",
+  "author": "matthova",
   "license": ""
 }
