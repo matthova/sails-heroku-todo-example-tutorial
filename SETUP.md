@@ -1,3 +1,6 @@
+Already have NodeJS installed? Skip to [here.](#psql)  
+Already have Postgres installed? Skip to [here.](#sails)
+
 <ol>
   <li>
     <p>Install NodeJS (NVM recommended)</p>
@@ -40,6 +43,7 @@ nvm install v7
     <p>Download the postgres app for <a href="http://postgresapp.com/">Mac</a>, <a href="https://www.postgresql.org/download/windows/">Windows</a>, or your <a href="https://www.postgresql.org/download/">OS of choice</a>.</p>
   </li>
   <li>
+    <a name="psql"></a>
     <p>Once Postgres is installed and running, sign into your postgres instance. You can log in from terminal by entering the following:</p>
 
 ```
@@ -63,6 +67,7 @@ create database sails_todo;
 ```    
   </li>
   <li>
+    <a name="sails"></a>
     <p>Install Sails globally</p>
     
 ```
