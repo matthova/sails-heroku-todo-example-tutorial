@@ -24,7 +24,7 @@
 /build
 
 # production, created by create-react-app build
-views/homepage.ejs
+views/react.ejs
 assets/asset-manifest.json
 assets/favicon.ico
 assets/static

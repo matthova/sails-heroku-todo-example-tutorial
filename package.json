@@ -46,7 +46,7 @@
     "migrate": "node node_modules/.bin/grunt db:migrate:up",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
-    "build": "npm run build-css && react-scripts build && rm -rf assets/static && mv build/* assets/ && mv assets/index.html views/homepage.ejs",
+    "build": "npm run build-css && react-scripts build && rm -rf assets/static && mv build/* assets/ && mv assets/index.html views/react.ejs",
     "build-css": "node-sass src/ -o src/",
     "test": "react-scripts test --env=jsdom",
     "predeploy": "npm run build",
