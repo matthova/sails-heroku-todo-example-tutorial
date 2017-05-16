@@ -1,18 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './styles/App.css';
+import socketIOClient from 'socket.io-client';
+import sailsIOClient from 'sails.io.js';
+import addCrud from 'sails-react-crud-hooks';
+import autoBind from 'react-autobind';
+
+import Lists from './components/Lists';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    const io = sailsIOClient(socketIOClient);
+    io.sails.url = 'http://localhost:1337/';
+
+    this.state = {
+      io,
+    };
+
+    addCrud('list', this);
+    addCrud('todo', this);
+    autoBind(this);
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Lists
+          io={this.state.io}
+
+          lists={this.state.lists}
+          createList={this.createList}
+          updateList={this.updateList}
+          destroyList={this.destroyList}
+
+          todos={this.state.todos}
+          createTodo={this.createTodo}
+          updateTodo={this.updateTodo}
+          destroyTodo={this.destroyTodo}
+        />
       </div>
     );
   }
