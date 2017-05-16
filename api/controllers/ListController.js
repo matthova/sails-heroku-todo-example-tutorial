@@ -1,7 +1,7 @@
 /**
- * TodoController
+ * ListController
  *
- * @description :: Server-side logic for managing todoes
+ * @description :: Server-side logic for managing lists
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
