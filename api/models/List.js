@@ -1,5 +1,5 @@
 /**
- * Todo.js
+ * List.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -18,22 +18,19 @@ module.exports = {
       uuidv4: true,
       defaultsTo: () => uuidV4(),
     },
-    description: {
-      type: 'string',
-    },
-    list: {
-      // type: 'string',
-      // uuidv4: true,
-      // required: true,
-      model: 'list',
+    name: { type: 'string', required: true },
+    todos: {
+      collection: 'todo',
+      via: 'list',
     },
     toJSON: function toJSON() {
       const obj = this.toObject();
-      if (obj.list == null) {
-        return;
-      }
 
-      obj.list = obj.list.id;
+      if (Array.isArray(obj.todos)) {
+        obj.todos = obj.todos.map((todo) => {
+          return todo.id;
+        });
+      }
 
       delete obj.createdAt;
       delete obj.updatedAt;
