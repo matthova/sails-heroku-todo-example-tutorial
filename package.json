@@ -41,10 +41,12 @@
     "sails.io.js": "^1.1.12",
     "socket.io-client": "^2.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
   "scripts": {
     "start": "npm-run-all -p start-sails start-react",
-    "start-sails": "node app.js",
+    "start-sails": "node node_modules/.bin/nodemon app.js",
     "start-react": "npm-run-all -p watch-css start-js",
     "migrate": "node node_modules/.bin/grunt db:migrate:up",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",

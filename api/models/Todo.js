@@ -22,19 +22,12 @@ module.exports = {
       type: 'string',
     },
     list: {
-      // type: 'string',
-      // uuidv4: true,
-      // required: true,
-      model: 'list',
+      type: 'string',
+      uuidv4: true,
+      required: true,
     },
     toJSON: function toJSON() {
       const obj = this.toObject();
-      if (obj.list == null) {
-        return;
-      }
-
-      obj.list = obj.list.id;
-
       delete obj.createdAt;
       delete obj.updatedAt;
 

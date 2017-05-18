@@ -19,19 +19,8 @@ module.exports = {
       defaultsTo: () => uuidV4(),
     },
     name: { type: 'string', required: true },
-    todos: {
-      collection: 'todo',
-      via: 'list',
-    },
     toJSON: function toJSON() {
       const obj = this.toObject();
-
-      if (Array.isArray(obj.todos)) {
-        obj.todos = obj.todos.map((todo) => {
-          return todo.id;
-        });
-      }
-
       delete obj.createdAt;
       delete obj.updatedAt;
 
